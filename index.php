@@ -1,3 +1,3 @@
 <?php
-include 'Traitement/Utilisateurs.php';
+header('Location:Traitement/Utilisateurs.php');
 ?>
