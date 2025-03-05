@@ -17,7 +17,11 @@
             <span>L'utilisateur a été supprimé avec succès</span>
         <?php
             }
-
+            if(isset($errors)){
+                ?>
+                <span><?php echo $errors?></span>
+            <?php 
+            }
             // if(isset($user) && !empty($users)){
             if(isset($users) && !empty($users)){
                 // print_r($users);

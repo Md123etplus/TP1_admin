@@ -25,13 +25,16 @@ else if(isset($_GET['action'])){
         case 'supprimer':
             $user=deleteUserById($_GET['data']);
             $isDeleted=false;
+            $errors="";
             if($user){
                 $isDeleted=true;
                 $users = getAllUsers();
                 include(ROOT.'IHM\utilisateur\index.php');
                 // include('..\IHM\utilisateur\index.php');
             }else{
-                echo "Erreur de suppression";
+                $errors="Erreur de suppression ou l'utilisateur a deja ete supprimer";
+                $users = getAllUsers();
+                include(ROOT.'IHM\utilisateur\index.php');
             }
             break;
         // case 'add':
@@ -49,13 +52,31 @@ else if(isset($_POST['submit_add'])){
     $apropos=$_POST['apropos'];
     $age=$_POST['age'];
     $tel=$_POST['tel'];
-    $user=addUser($nom,$prenom,$email,$apropos,$age,$tel);
-    if($user){
+    $errors = "";
+    try{
+        if(existAlready($nom,$prenom,$email,$apropos,$age,$tel)){
+            $users = getAllUsers();
+            $errors = "Un utilisateur avec le meme email existe deja!";
+            include(ROOT.'IHM\utilisateur\index.php');
+        }else{
+            $user=addUser($nom,$prenom,$email,$apropos,$age,$tel);
+            if($user){
+                $users = getAllUsers();
+                include(ROOT.'IHM\utilisateur\index.php');
+                // include('..\IHM\utilisateur\index.php');
+            }else{
+                $users = getAllUsers();
+                $errors = "Erreur d'ajout";
+                include(ROOT.'IHM\utilisateur\index.php');
+                // include('..\IHM\utilisateur\index.php');
+            }
+        }
+        
+    }catch(Exception $e){
         $users = getAllUsers();
+        $errors = "Erreur: " . $e->getMessage();
         include(ROOT.'IHM\utilisateur\index.php');
         // include('..\IHM\utilisateur\index.php');
-    }else{
-        echo "Erreur d'ajout";
     }
 }
 else if(isset($_POST['submit_edit'])){
@@ -66,13 +87,16 @@ else if(isset($_POST['submit_edit'])){
     $age=$_POST['age'];
     $tel=$_POST['tel'];
     $id=$_POST['id'];
+    $errors="";
     $user=updateUser($id,$nom,$prenom,$email,$apropos,$age,$tel);
     if($user>0){
         $users = getAllUsers();
         include(ROOT.'IHM\utilisateur\index.php');
         // include('..\IHM\utilisateur\index.php');
     }else{
-        echo "Erreur de modification";
+        $errors= "Erreur de modification";
+        $users = getAllUsers();
+        include(ROOT.'IHM\utilisateur\index.php');
     }
 }
 else{

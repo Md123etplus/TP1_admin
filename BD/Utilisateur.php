@@ -55,6 +55,21 @@ function updateUser($id,$nom,$prenom,$email,$apropos,$age,$tel){
     // mysqli_stmt_execute($stmt);
     // return mysqli_stmt_affected_rows($stmt);
 }
+function existAlready($nom, $prenom, $email, $apropos, $age, $tel) {
+    $bdd = connexion(); // Connect to the database
+
+    // Check if a user with the same email already exists
+    $sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+    $stmt = $bdd->prepare($sql);
+    $stmt->execute([$email]);
+    
+    if ($stmt->fetchColumn() > 0) {
+        return true; // User already exists
+    }
+
+    return false; // User does not exist
+}
+
 
 
 ?>
