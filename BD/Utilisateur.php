@@ -29,6 +29,32 @@ function deleteUserById($id){
     // mysqli_stmt_bind_param($stmt,'i',$id);
     // mysqli_stmt_execute($stmt);
     // return mysqli_stmt_affected_rows($stmt);
+
 }
+// $user=addUser($nom,prenom: prenom: $prenom,$email,$apropos,$age,$tel);
+
+function addUser($nom,$prenom,$email,$apropos,$age,$tel){
+    $bdd=connexion();
+    $sql="INSERT INTO users(nom,prenom,email,apropos,age,tel) VALUES(?,?,?,?,?,?)";
+    $stmt=$bdd->prepare($sql);
+    $stmt->execute([$nom,$prenom,$email,$apropos,$age,$tel]);
+    return $stmt->rowCount();
+    // $stmt=mysqli_prepare($bdd,$sql);
+    // mysqli_stmt_bind_param($stmt,'ssssii',$nom,$prenom,$email,$apropos,$age,$tel);
+    // mysqli_stmt_execute($stmt);
+    // return mysqli_stmt_affected_rows($stmt);
+}
+function updateUser($id,$nom,$prenom,$email,$apropos,$age,$tel){
+    $bdd=connexion();
+    $sql="UPDATE users SET nom=?,prenom=?,email=?,apropos=?,age=?,tel=? WHERE id=?";
+    $stmt=$bdd->prepare($sql);
+    $stmt->execute([$nom,$prenom,$email,$apropos,$age,$tel,$id]);
+    return $stmt->rowCount();
+    // $stmt=mysqli_prepare($bdd,$sql);
+    // mysqli_stmt_bind_param($stmt,'ssssiii',$nom,$prenom,$email,$apropos,$age,$tel,$id);
+    // mysqli_stmt_execute($stmt);
+    // return mysqli_stmt_affected_rows($stmt);
+}
+
 
 ?>

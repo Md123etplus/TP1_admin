@@ -49,7 +49,7 @@ else if(isset($_POST['submit_add'])){
     $apropos=$_POST['apropos'];
     $age=$_POST['age'];
     $tel=$_POST['tel'];
-    // $user=addUser($nom,$prenom,$email,$apropos,$age,$tel);
+    $user=addUser($nom,$prenom,$email,$apropos,$age,$tel);
     if($user){
         $users = getAllUsers();
         include(ROOT.'IHM\utilisateur\index.php');
@@ -65,7 +65,8 @@ else if(isset($_POST['submit_edit'])){
     $apropos=$_POST['apropos'];
     $age=$_POST['age'];
     $tel=$_POST['tel'];
-    // $user=updateUser($id,$nom,$prenom,$email,$apropos,$age,$tel);
+    $id=$_POST['id'];
+    $user=updateUser($id,$nom,$prenom,$email,$apropos,$age,$tel);
     if($user>0){
         $users = getAllUsers();
         include(ROOT.'IHM\utilisateur\index.php');
