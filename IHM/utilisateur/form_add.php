@@ -15,7 +15,7 @@
             </p>
         </div>
         <div class="container">
-            <form action="/Traitement/Utilisateurs.php" method="post">
+            <form action="/Traitement/Utilisateurs.php" method="post" onsubmit="return validateForm()">
                 <p>
                     Veuillez remplir le formulaire:
                 </p>
@@ -28,12 +28,14 @@
 
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" required>
+                <span id="emailError" class="error-message"></span>
 
                 <label for="age">Age</label>
                 <input type="number" name="age" id="age" required>
 
                 <label for="tel">Tel</label>
                 <input type="tel" name="tel" id="tel" required>
+                <span id="telError" class="error-message"></span>
 
                 <label for="apropos">A propos</label>
                 <input type="text" name="apropos" id="apropos" required>
@@ -49,5 +51,7 @@
     </section>
 
     <?php include('include/footer.php') ?>
+
+    <script src="static/script/script.js"></script>
 </body>
 </html>

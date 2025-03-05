@@ -11,17 +11,21 @@
     <?php include('include/header.php') ?>
 
     <section>
-        <?php
-            if(isset($isDeleted) && $isDeleted){
-                echo "<span>L'utilisateur a été supprimé avec succès</span>";
-            }
-        ?>     
             <div class="banier_bg">
                 <p class="banier">
                     <span class="bonjour">Bonjour Admin,</span> <br>
                     Voici la liste des candidats qui ont postulés pour ce stage.
                 </p>
             </div>
+
+            <?php
+                if(isset($isDeleted) && $isDeleted){
+                    echo "<span style=\"color: green;\">L'utilisateur a été supprimé avec succès</span>";
+                }
+                else if(isset($errors)&& !empty($errors)){
+                    echo "<span style=\"color: red;\"> $errors </span>";
+                }
+            ?>
             <div id="liste">
             <?php
                 // if(isset($user) && !empty($users)){
@@ -62,9 +66,11 @@
         <?php
             }else{ 
         ?>
-            <p>
-                Vous avez aucun candidat pour l'instant.
-            </p>
+            <div class="aucun_candidat">
+                <img src="/IHM/utilisateur/static/image/a_empty.jpg" alt="">
+
+                <p> Vous avez aucun candidat pour l'instant.</p>
+            </div>
 
             </div>
         <?php
