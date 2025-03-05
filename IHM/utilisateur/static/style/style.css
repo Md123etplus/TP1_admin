@@ -1,0 +1,190 @@
+*, *::before,*::after{
+    padding: 0px;
+    margin: 0px;
+    outline: 0px;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a{
+    color: black;
+}
+
+body{
+    max-width: 900px;
+    margin: auto;
+    background-color: rgb(255, 254, 246);
+}
+
+header{
+    min-width: 900px;
+    font-size: large;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px; padding-bottom: 10px;
+    z-index: 50;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: antiquewhite;
+}
+
+header img{
+    width: 35px; 
+    height: 35px; 
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+.navbar a{
+    color: rgb(250, 120, 6);
+    padding: 5px 8px;
+}
+
+.navbar .active{
+    border-bottom: 2px solid rgb(250, 120, 6);
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.banier{
+    width: 100%;
+    text-align: center;
+    padding: 80px 0px;
+    font-size: larger;
+    font-family: cursive;
+    background-color: rgba(0, 0, 0, 0.666);
+    color: bisque;
+}
+
+.bonjour{
+    font-size: xx-large;
+    color: rgb(248, 156, 76);
+}
+
+.banier_bg{
+    width: 100%;
+    background-image: url('../image/job.jpg');
+}
+
+table{
+    color: rgb(31, 31, 31);
+}
+
+thead tr th:first-child{
+    border-top-left-radius: 18px;
+}
+
+thead tr th:last-child{
+    border-top-right-radius: 18px;
+}
+
+tr{
+    padding: 5px;
+    line-height: 50px;
+    background-color: rgb(243, 241, 238);
+}
+
+th,td{
+    padding-left: 10px;
+    border-bottom: 1.5px solid rgba(213, 213, 213, 0.778);
+}
+
+th{
+    text-align: left;
+    background-color: rgb(247, 172, 106);
+}
+
+td a{
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.supprimer{
+    background-color: rgba(234, 35, 35, 0.997);
+    color: rgba(255, 255, 255, 0.804);
+}
+
+.modifier{
+    background-color: rgba(29, 148, 18, 0.997);
+    color: rgba(255, 255, 255, 0.804);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    min-width: 50%;
+    font-size: medium;
+    background-color: rgba(223, 224, 225, 0.379);
+    padding: 8px 15px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+form p{
+    font-size: x-large;
+    color: rgba(224, 78, 10, 0.951);
+    padding: 14px 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+form label{
+    padding-left: 5px;
+    margin-top: 10px;
+}
+
+form input{
+    line-height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.581);
+    border-radius: 10px;
+    padding-left: 15px;
+    font-size: medium;
+}
+
+form span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+form span button{
+    margin-top: 25px;
+    width: 45%;
+    padding: 10px 3px;
+    border-radius: 10px;
+    border: 1px solid;
+    font-size: medium;
+    color: rgb(20, 20, 20);
+}
+
+form span button[type="submit"]{
+    background-color: rgba(30, 183, 30, 0.823);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
+.container img{
+    min-width: 46%;
+    max-height: 550px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/IHM//utilisateur/static/style/style.css">
     <title>Home</title>
 </head>
 <body>
     <!-- à inclure après -->
-    <header>
-        <!-- <img src="static/images/ants.jpg" alt="logo"> -->
-        <a href="/form_add.php">Ajouter cv</a>
-    </header>
+    <?php include('include/header.php') ?>
 
     <section>
         <?php
@@ -22,13 +20,15 @@
 
             // if(isset($user) && !empty($users)){
             if(isset($users) && !empty($users)){
-                print_r($users);
+                // print_r($users);
         ?>
-            <p>
-                Bonjour Admin, <br>
-                Voici la liste de candidats qui a postulé pour ce stage.
-            </p>
-            <table border="1">
+            <div class="banier_bg">
+                <p class="banier">
+                    <span class="bonjour">Bonjour Admin,</span> <br>
+                    Voici la liste de candidats qui a postulé pour ce stage.
+                </p>
+            </div>
+            <table id="liste">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -46,8 +46,12 @@
                         <td><?php echo $user['id']; ?></td>
                         <td><?php echo $user['nom']." ".$user['prenom']; ?></td>
                         <td><?php echo $user['email']; ?></td>
-                        <td><a href="/Traitement/Utilisateurs.php?action=supprimer&data=<?php echo $user['id']; ?>">Supprimer</a></td>
-                        <td><a href="/Traitement/Utilisateurs.php?action=modifier&data=<?php echo $user['id']; ?>">Modifier_Perso</a></td>
+                        <td>
+                            <a class="supprimer" href="/Traitement/Utilisateurs.php?action=supprimer&data=<?php echo $user['id']; ?>">Supprimer</a>
+                        </td>
+                        <td>
+                            <a class="modifier" href="/Traitement/Utilisateurs.php?action=modifier&data=<?php echo $user['id']; ?>">Modifier_Perso</a>
+                        </td>
                     </tr>
 
                     <?php
