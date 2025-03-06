@@ -29,7 +29,6 @@ function deleteUserById($id){
     // mysqli_stmt_bind_param($stmt,'i',$id);
     // mysqli_stmt_execute($stmt);
     // return mysqli_stmt_affected_rows($stmt);
-
 }
 // $user=addUser($nom,prenom: prenom: $prenom,$email,$apropos,$age,$tel);
 
